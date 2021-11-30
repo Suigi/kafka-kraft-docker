@@ -12,11 +12,11 @@ For more information about the Kafka running in KRaft mode check out the [introd
 ### Run with Docker
 
 Build image
-
 ```
 docker build . -t user/kafka-kraft
 ```
 
+Run image
 ```
 docker run -p 9092:9092 -d user/kafka-kraft
 ```
