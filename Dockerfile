@@ -1,4 +1,4 @@
-FROM alpine:3.14 AS builder
+FROM arm64v8/alpine:3.15 AS builder
 ENV KAFKA_VERSION=3.0.0
 ENV SCALA_VERSION=2.13
 COPY install_kafka.sh /bin/
@@ -7,7 +7,7 @@ RUN apk update \
   && /bin/install_kafka.sh \
   && apk del curl jq
 
-FROM alpine:3.14
+FROM arm64v8/alpine:3.15
 RUN apk update && apk add --no-cache bash openjdk8-jre
 COPY --from=builder /opt/kafka /opt/kafka
 COPY start_kafka.sh /bin/
